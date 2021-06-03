@@ -43,10 +43,10 @@
 				What are you looking for?
 			</h3>
 
-			<form class="w-full flex-w flex-c-m validate-form" method="POST" action="search">
-
-				<div class="wrap-input100 validate-input where1">
-					<input class="input100 placeholder0 s2-txt2" type="text" name="search" placeholder="Type here!">
+			<form class="w-full flex-w flex-c-m" method="POST" action="search">
+						    {% csrf_token %}
+				<div class="wrap-input100 where1">
+					<input class="input100 placeholder0 s2-txt2" type="text" name="search" placeholder="ENTER TEXT HERE">
 					<span class="focus-input100"></span>
 				</div>
 				

@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>weeb</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results</title>
+    <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
-<!--===============================================================================================-->
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="../static/css/util.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+
+    
 </head>
 <body>
-	
-	<!--  -->
+    <!--  -->
 	<div class="simpleslide100">
 		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg01.webp');"></div>
 		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg02.jpg');"></div>
@@ -43,9 +44,9 @@
 				What are you looking for?
 			</h3>
 
-			<form class="w-full flex-w flex-c-m validate-form" method="POST" action="search">
-
-				<div class="wrap-input100 validate-input where1">
+			<form class="w-full flex-w flex-c-m" method="POST" action="search">
+						    {% csrf_token %}
+				<div class="wrap-input100 where1">
 					<input class="input100 placeholder0 s2-txt2" type="text" name="search" placeholder="Type here!">
 					<span class="focus-input100"></span>
 				</div>
@@ -78,6 +79,5 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="../static/js/main.js"></script>
-
 </body>
 </html>
