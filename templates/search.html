@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search results</title>
-    <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+    <link
+      rel="icon"
+      type="image/png"
+      href="../static/images/icons/favicon.ico"
+    />
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/vendor/bootstrap/css/bootstrap.min.css"
+    />
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/vendor/animate/animate.css"
+    />
     <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="../static/css/util.css">
-        <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../static/vendor/select2/select2.min.css"
+    />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../static/css/util.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
+    <!--===============================================================================================-->
+  </head>
+  <body style="background-color:rgb(185, 145, 197)">
+    <div>     
+		<br />
+      <form class="w-full flex-w flex-c-m" method="POST" action="search">
+        {% csrf_token %}
+        <div class="wrap-input100 where1">
+          <input
+            class="input100 placeholder0 s2-txt2"
+            type="text"
+            name="search"
+            placeholder="Type here!"
+          />
+          <span class="focus-input100"></span>
+        </div>
 
-    
-</head>
-<body>
-    <!--  -->
-	<div class="simpleslide100">
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg01.webp');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg02.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg03.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg04.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg05.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg06.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg07.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg08.jpg');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg09.png');"></div>
-		<div class="simpleslide100-item bg-img1" style="background-image: url('../static/images/bg10.png');"></div>
-
-	</div>
-
-	<div class="size1 overlay1">
-		<!--  -->
-		<div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
-			<h3 class="l1-txt1 txt-center p-b-25">
-				What are you looking for?
-			</h3>
-
-			<form class="w-full flex-w flex-c-m" method="POST" action="search">
-						    {% csrf_token %}
-				<div class="wrap-input100 where1">
-					<input class="input100 placeholder0 s2-txt2" type="text" name="search" placeholder="Type here!">
-					<span class="focus-input100"></span>
+        <button
+          class="flex-c-m size3 s2-txt3 how-btn1 trans-04 where1"
+          type="submit"
+        >
+          Search
+        </button>
+		<h3 class="l1-txt1 txt-center p-b-25">
+			What are you looking for?
+		</h3>
+        {% if final_result %}
+			<b style="padding-left: 50px; padding-right: 50px; color: #646464">Web Results</b>
+			{% for result in final_result %}
+				<div style="padding-left: 50px; padding-right: 50px">
+				<h3 style="color: blue">
+					<a href="{{ result.1 }}">{{ result.0 }}</a>
+				</h3>
+				<h3 style="color: green">{{ result.1 }}</h3>
+				<h3>{{ result.2 }}</h3>
 				</div>
-				
-				
-				<button class="flex-c-m size3 s2-txt3 how-btn1 trans-04 where1" type="submit">
-					Search
-				</button>
-			</form>
-		</div>
-	</div>
-
-
-
-	
-
-<!--===============================================================================================-->	
-	<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/bootstrap/js/popper.js"></script>
-	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="../static/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="'../static/vendor/tilt/tilt.jquery.min.js'"></script>
-	<script >
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
-	</script>
-<!--===============================================================================================-->
-	<script src="../static/js/main.js"></script>
-</body>
+				<br /><br />
+			{% endfor %} 
+		{% endif %}
+      </form>
+    </div>
+  </body>
 </html>
