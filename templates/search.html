@@ -40,8 +40,8 @@
     <link rel="stylesheet" type="text/css" href="../static/css/main.css" />
     <!--===============================================================================================-->
   </head>
-  <body style="background-color:rgb(185, 145, 197)">
-    <div>     
+  <body>
+    <div style="background-image: url('../static/images/bg.jpg');">     
 		<br />
       <form class="w-full flex-w flex-c-m" method="POST" action="search">
         {% csrf_token %}
@@ -62,7 +62,7 @@
           Search
         </button>
         {% if final_result %}
-			<b style="padding-left: 50px; padding-right: 50px; color: #646464">Web Results</b>
+			<div><h3 style="padding-left: 50px; padding-right: 50px; color: #ffffff">Web Results</h3></div>
 			{% for result in final_result %}
 				<div style="padding-left: 50px; padding-right: 50px">
 				<h3 style="color: blue">
@@ -72,6 +72,7 @@
 				<h3>{{ result.2 }}</h3>
 				</div>
 				<br /><br />
+				<hr />
 			{% endfor %} 
 		{% endif %}
       </form>
